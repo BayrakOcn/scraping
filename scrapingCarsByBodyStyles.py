@@ -16,7 +16,6 @@ def get_car_details(car_url):
     response = requests.get(car_url)
     soup = BeautifulSoup(response.text, "html.parser")
 
-    # Car name
     car_name = soup.select_one("h1.listing-title")
     car_details["Car Name"] = car_name.text.strip() if car_name else "N/A"
 
@@ -96,6 +95,7 @@ for body_style in body_styles:
                 print(f"Hata: {e} - {link}")
                 continue
             time.sleep(1)
+
         # Next page URL
         url = get_next_page(soup)
         current_page += 1
@@ -104,3 +104,8 @@ for body_style in body_styles:
     df.to_csv(f'Cars_{body_style}.csv', index=False)
     print(df.shape)
     print(df.head())
+
+
+
+
+

@@ -102,7 +102,5 @@ for car_make in car_makes:
 
     df = pd.DataFrame(car_data)
     df.to_csv(f'Cars_{car_make}.csv', index=False)
-    print(df.columns)
     print(df.shape)
     print(df.head())
-
